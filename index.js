@@ -6,24 +6,24 @@ const cors = require('cors')
 const router=require('./Router/router')
 require('./DB/connection')
 
-const bmeServer=express()
+const bmsServer=express()
 
 //dataSharing
-bmeServer.use(cors())
+bmsServer.use(cors())
 
 //parse json
 
-bmeServer.use(express.json())
-bmeServer.use(router)
-bmeServer.use('/Uploads',express.static('./Uploads'))
+bmsServer.use(express.json())
+bmsServer.use(router)
+bmsServer.use('/Uploads',express.static('./Uploads'))
 
 const PORT=3000 || process.env.PORT
 
-bmeServer.listen(PORT,()=>{
+bmsServer.listen(PORT,()=>{
     console.log(`BME Server start listening at port:${PORT}`);
 })
 
-bmeServer.get('/',(req,res)=>{
-    res.send("hello")
+bmsServer.get('/',(req,res)=>{
+    res.send("<h1>BMS Server is live.......</h1>")
 })
 
